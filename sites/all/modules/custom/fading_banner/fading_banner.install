@@ -1,0 +1,19 @@
+<?php
+
+include_once 'cck_fbanner.inc';
+
+/**
+ * Implementation of hook_install
+ */
+function fading_banner_install() {
+  // Create banner content-type, with CCK fields
+  _fading_banner_cck_install();
+}
+
+/**
+ * Implementation of hook_uninstall
+ */
+function fading_banner_uninstall() {
+  // Remove the banner node type
+  node_type_delete('fading_banner');
+}

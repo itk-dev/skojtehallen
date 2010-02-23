@@ -1,0 +1,137 @@
+<?php
+
+include_once 'data_parser.php';
+
+define('FADING_BANNER_ICE', 'isbanen');
+define('FADING_BANNER_SKOJTEHAL', 'skojtehal');
+
+/**
+ * Implementation of hook_nodeapi
+ */
+function fading_banner_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if ($node->type == 'fading_banner') {
+    switch ($op) {
+      case 'insert':
+        // Update xml file used by the flash program
+        $data = _fading_banner_get_data($node->field_association[0][value]);
+        $data->addBanner($node->field_fading_banner[0]);
+        break;
+
+      case 'update':
+        $data = _fading_banner_get_data($node->field_association[0][value]);
+        $data->updateBanner($node->field_fading_banner[0]);
+        break;
+
+      case 'delete':
+        $data = _fading_banner_get_data($node->field_association[0][value]);
+        $data->removeBanner($node->field_fading_banner[0]);
+        break;
+    }
+  }
+}
+
+/**
+ * Returns DataParser object based on input type (Fading banner type)
+ *
+ * @param string $type
+ * @return object DataParser
+ */
+function _fading_banner_get_data($type) {
+  $data = NULL;
+  if ($type == 'Skøjtehallen') {
+    $data = new DataParser(FADING_BANNER_SKOJTEHAL);
+  }
+  else {
+    $data = new DataParser(FADING_BANNER_ICE);
+  }
+  return $data;
+}
+
+/**
+ * Implementation of hook_init
+ */
+function fading_banner_init() {
+  drupal_add_js(drupal_get_path('module', 'fading_banner') .'/js/swfobject.js');
+}
+
+/**
+ * Implmentation of hook_theme. Make 'fading_banner' theme function visible.
+ *
+ * @return array
+ */
+function fading_banner_theme() {
+  return array(
+    'fading_banner' => array(
+      'arguments' => array('id' => NULL, 'image' => NULL),
+    ),
+  );
+}
+
+/**
+ * Theme fading banner block content.
+ *
+ */
+function theme_fading_banner($id, $flash_location) {
+  drupal_add_js('var flashvars = {
+                        xmlPath: "/'. $flash_location .'/'. $id .'.xml"
+                 };
+		 var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "false",
+			allowScriptAccess: "always",
+			bgcolor: "#FFFFFF",
+                        wmode: "transparent"
+		 };
+		 var attributes = {
+			id: "fading_banner_'. $id .'"
+		 };
+		 swfobject.embedSWF("/'. $flash_location .'/banner.swf",
+                                    "altContent",
+                                    "100%", "188px",
+                                    "9.0.0",
+                                    "/'. $flash_location .'/expressInstall.swf",
+                                    flashvars,
+                                    params,
+                                    attributes);', 'inline');
+  
+  $output = '<div id="altContent">
+		<p><a href="http://www.adobe.com/go/getflashplayer"><img
+			src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+			alt="Get Adobe Flash player" /></a></p>
+	     </div>';
+  
+  return $output;
+}
+
+/**
+ * Implementation of hook_block
+ */
+function fading_banner_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case "list":
+      $blocks[0]['info'] = t('Skøjtehallen');
+      $blocks[0]['cache'] = BLOCK_NO_CACHE;
+
+      $blocks[1]['info'] = t('Isbanen');
+      $blocks[1]['cache'] = BLOCK_NO_CACHE;
+
+      return $blocks;
+      break;
+
+    case "view":
+      if ($delta == 0) {
+        // Skøjtehallen is begin displayed
+        $block['subject'] = t('Skøjtehallen');
+        $block['content'] = theme('fading_banner', FADING_BANNER_SKOJTEHAL, drupal_get_path('module', 'fading_banner'));
+      }
+      elseif ($delta == 1) {
+        // Isbanen is begin displayed
+        $block['subject'] = t('Isbanen');
+        $block['content'] = theme('fading_banner', FADING_BANNER_ICE, drupal_get_path('module', 'fading_banner'));
+      }
+
+      return $block;
+      break;
+  }
+}

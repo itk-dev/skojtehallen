@@ -1,0 +1,261 @@
+
+#container {
+	background: transparent url(../../images/back-content-ie6-default.png) repeat-y scroll center top;
+	}
+
+.isbanen #container {
+	background: transparent url(../../images/back-content-ie6-isbanen.png) repeat-y scroll center top;
+	}
+
+#container #container-inner {
+	background:transparent url(../../images/back-top-skojtebanen-ie6.jpg) no-repeat scroll center top;
+	}
+
+.isbanen #container #container-inner {
+	background:transparent url(../../images/back-top-isbanen-ie6.jpg) no-repeat scroll center top;
+	}
+
+#footer {
+	background:transparent url(../../images/back-footer-ie6-default.png) no-repeat scroll center top;
+	}
+
+.isbanen #footer {
+	background:transparent url(../../images/back-footer-ie6-isbanen.png) no-repeat scroll center top;
+	}
+
+/**********************************************************
+ *               Primary & Secondary Links
+ **********************************************************/
+
+.menu-name-primary-links .menu,
+.menu-name-menu-isbanen-links .menu {
+	clear: both;
+	padding: 28px 0 19px;
+	height: 40px;
+	}
+	
+	.menu-name-primary-links .menu li,
+	.menu-name-menu-isbanen-links .menu li {
+		float: left;
+		position: relative;
+		overflow: visible;
+		margin-right: 8px;
+		}
+		
+		.menu-name-primary-links .menu li.last,
+		.menu-name-menu-isbanen-links .menu li.last {
+			margin-right: 0;
+			}
+		
+		.menu-name-primary-links .menu li a,
+		.menu-name-menu-isbanen-links .menu li a {
+			float: left;
+			height: 40px;
+			display: block;
+			line-height: 40px;
+			text-indent: -9999em; 
+			padding: 0 4px;
+			background: #fff url(../../images/back-menu-sprite.png) 0 0 no-repeat;
+			}
+
+
+	.menu-name-primary-links .menu li.expanded .menu,
+	.menu-name-menu-isbanen-links .menu li.expanded .menu {
+		position: absolute;
+		left: 1px;
+		top: 40px;
+		background: #90a9c5;
+		height: auto;
+		padding: 0;
+		overflow: hidden;
+		}
+		
+		.menu-name-primary-links .menu li.expanded .menu li,
+		.menu-name-menu-isbanen-links .menu li.expanded .menu li {		
+			margin-right: 0;
+			float: none;
+			padding: 0;
+			display: block;
+			width: 100%;
+			height: 1%;
+			}
+			
+		.menu-name-primary-links .menu li.expanded .menu a,
+		.menu-name-menu-isbanen-links .menu li.expanded .menu a {
+			display: block;
+			padding: 3px 16px;
+			background: transparent;
+			text-indent: 0;
+			float: none;
+			line-height: 17px;
+			height: 17px;
+			width: 100%;
+			}
+			
+		.menu-name-primary-links .menu li.expanded .menu a:hover,
+		.menu-name-menu-isbanen-links .menu li.expanded .menu a:hover {
+			background: #49698f;
+			display: block;
+			}
+
+/* ******************** Skojtebanen-menu ******************/
+
+
+.menu-name-primary-links .menu .menu-mlid-459 a {
+	width: 113px;
+	}
+	
+	.menu-name-primary-links .menu .menu-mlid-459 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-459 a:hover
+	 {
+		background-position: 0 -40px;
+		}
+	
+.menu-name-primary-links .menu .menu-mlid-460 a {
+	width: 96px;
+	background-position: -129px 0;
+	}
+
+	.menu-name-primary-links .menu .menu-mlid-460 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-460 a:hover {
+		background-position: -129px -40px;
+		}
+	
+.menu-name-primary-links .menu .menu-mlid-461 a {
+	width: 55px;
+	background-position: -251px 0;
+	}
+
+	.menu-name-primary-links .menu .menu-mlid-461 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-461 a:hover {
+		background-position: -251px -40px;
+		}
+
+.menu-name-primary-links .menu .menu-mlid-463 a {
+	width: 65px;
+	background-position: -382px 0;
+	}
+	
+	.menu-name-primary-links .menu .menu-mlid-463 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-463 a:hover {
+		background-position: -382px -40px;
+		}
+	
+.menu-name-primary-links .menu .menu-mlid-468 a {
+	width: 67px;
+	background-position: -466px 0;
+	}
+
+	.menu-name-primary-links .menu .menu-mlid-468 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-468 a:hover {
+		background-position: -466px -40px;
+		}
+	
+.menu-name-primary-links .menu .menu-mlid-469 a {	
+	width: 33px;
+	background-position: -552px 0;
+	}
+	
+	.menu-name-primary-links .menu .menu-mlid-469 a.active-trail,
+	.menu-name-primary-links .menu .menu-mlid-469 a:hover {
+		background-position: -552px -40px;
+		}
+
+/* ******************** Isbanen-menu ******************/
+.menu-name-menu-isbanen-links .menu .menu-mlid-474 a {
+	width: 67px;
+	background-position: 0 -80px;
+	}
+	
+	.menu-name-menu-isbanen-links .menu .menu-mlid-474 a.active-trail,
+	.menu-name-menu-isbanen-links .menu .menu-mlid-474 a:hover
+	 {
+		background-position: 0 -120px;
+		}
+
+.menu-name-menu-isbanen-links .menu .menu-mlid-476 a {
+	width: 94px;
+	background-position: -85px -80px;
+	}
+	
+	.menu-name-menu-isbanen-links .menu .menu-mlid-476 a.active-trail,
+	.menu-name-menu-isbanen-links .menu .menu-mlid-476 a:hover
+	 {
+		background-position: -85px -120px;
+		}
+		
+.menu-name-menu-isbanen-links .menu .menu-mlid-615 a {
+	width: 59px;
+	background-position: -207px -80px;
+	}
+	
+	.menu-name-menu-isbanen-links .menu .menu-mlid-615 a.active-trail,
+	.menu-name-menu-isbanen-links .menu .menu-mlid-615 a:hover
+	 {
+		background-position: -207px -120px;
+		}
+		
+.menu-name-menu-isbanen-links .menu .menu-mlid-479 a {
+	width: 66px;
+	background-position: -316px -80px;
+	}
+	
+	.menu-name-menu-isbanen-links .menu .menu-mlid-479 a.active-trail,
+	.menu-name-menu-isbanen-links .menu .menu-mlid-479 a:hover
+	 {
+		background-position: -316px -120px;
+		}	
+
+.menu-name-menu-isbanen-links .menu .menu-mlid-480 a {
+	width: 33px;
+	background-position: -402px -80px;
+	}
+	
+	.menu-name-menu-isbanen-links .menu .menu-mlid-480 a.active-trail,
+	.menu-name-menu-isbanen-links .menu .menu-mlid-480 a:hover
+	 {
+		background-position: -402px -120px;
+		}		
+
+
+/* ******************** Secondary links *******************/
+.menu-name-secondary-links .menu {
+	float: right;
+	margin-top: 45px;
+	}
+
+	.menu-name-secondary-links .menu li {
+		float: left;
+		}
+		
+		.menu-name-secondary-links .menu li a {
+			border-left: 1px solid #1a4165;
+			margin-left: 4px;
+			padding-left: 4px;
+			}
+		
+	.menu-name-secondary-links .menu li.first a {
+		border: none;
+		}
+		
+		
+#subsite-menu {
+	right: -68px;
+	overflow: visible;
+	}
+	
+		#subsite-menu a {
+		position: absolute;
+		left: 0;
+		top: 0;
+		}		
+
+
+/**********************************************************
+ *               Diagnostic styles
+ **********************************************************/
+
+#header-blocks {
+	width: 610px;
+	position: relative;
+	}

@@ -1,0 +1,248 @@
+/* $Id: blocks.css,v 1.1.2.21 2009/06/12 15:44:26 jmburnz Exp $ */
+
+/**
+ * @file blocks.css
+ * Basic styles for blocks.
+ */
+
+/**********************************************************
+ *                       Blocks
+ **********************************************************/
+/**
+ * Styles set for .block, .block-inner, block-title and 
+ * .block-content will be inherited by all blocks.
+ */
+
+/* Nyhedsarkiv og Arrangementsarkiv */
+ul.views-summary {
+	overflow: hidden;
+	margin-bottom: 30px;
+	}
+
+ul.views-summary li {
+	float: left;
+	margin-right: 6px; 
+	border-right: 1px solid #668EAD;
+	padding-right: 6px;
+	}
+	
+	ul.views-summary li:last-child {
+		border: none;
+		}
+
+/**
+ * Mailing list subscription form 
+ */
+ 
+  #block-nyhedsbrev {
+ 		padding: 12px 0;
+		border: 1px dotted #ddd;
+		border-width: 1px 0;
+  	}
+		
+		#block-nyhedsbrev label {
+			font-weight: bold;
+			color: #668ead;
+			padding-right: 12px;
+			display: inline-block;
+			}
+			
+		#block-nyhedsbrev input#dituhr-dituhr {
+			border: 1px solid #D9E8F1;
+			padding: 4px 8px;
+			display: inline-block;
+			color: #bbb;
+			font-style: italic;
+			width: 164px;
+			}
+			
+		#block-nyhedsbrev input#dituhr-dituhr:focus {
+			color: #666;
+			border-color: #1A4166;
+			font-style: normal;
+			}	
+			
+		#block-nyhedsbrev input[type=image] {
+			display: inline-block;
+			padding: 3px 0 0 6px;
+			position: relative;
+			top: 2px;
+			}
+ 
+
+/**********************************************************
+ *                   Sidebar blocks
+ **********************************************************/
+/**
+ * You can target blocks in one or more regions and 
+ * style them differently. 
+ */
+
+
+
+/**********************************************************
+ *                  Region blocks
+ **********************************************************/
+/* High specifity selectors to style blocks in one region. */
+
+
+
+/**********************************************************
+ *                   Module blocks
+ **********************************************************/
+/**
+ * Module Block ID's 
+ * For contributed module blocks the pattern is the same,
+ * i.e. #block-[module]-[delta]
+ */
+ 
+div.block-banner {
+	margin-top: 35px;
+	overflow: hidden;
+	clear: both;
+	}
+	
+.banner-type-ii #banner_0 {
+	float: left;
+	}
+	
+.banner-type-ii #banner_1 {	
+	float: right;
+	}
+        
+
+/* Contact Form Block */
+	
+.block-contact_form_blocks {
+	margin: 25px 0 0;
+	padding: 15px 0;
+	border-top: 2px dotted #ccc;
+	border-bottom: 2px dotted #ccc;
+	overflow: hidden;
+	}
+	
+	.block-contact_form_blocks .form-item {
+		padding-left: 100px;
+		margin: 3px 0;
+		}
+		
+	.block-contact_form_blocks .form-item label {
+		float: left;
+		margin-left: -100px;
+		color: #1a4166;
+		}
+		
+	.block-contact_form_blocks .form-item input[type=text] {
+		border: 1px solid #d9e8f1;
+		width: 268px;
+		padding: 4px 8px;
+		}
+		
+	.block-contact_form_blocks #edit-name-wrapper {
+		margin-top: 15px;
+		}
+
+	
+	.block-contact_form_blocks #edit-message-wrapper {
+		padding-left: 0;
+		}	
+	
+	.block-contact_form_blocks #edit-message-wrapper label {
+		float: none;
+		display: block;
+		margin-left: 0;
+		background: #d9e8f1 url(/sites/all/themes/skojtehallen/images/back-table-header.png) left top no-repeat;
+		width: 374px;
+		color: #fff;
+		padding: 4px 6px;
+		line-height: 16px;
+		margin-top: 16px;
+		}
+
+         .isbanen .block-contact_form_blocks #edit-message-wrapper label {
+		float: none;
+		display: block;
+		margin-left: 0;
+		background: #d9e8f1 url(/sites/all/themes/skojtehallen/images/back-table-header-isbanen.png) left top no-repeat;
+		width: 374px;
+		color: #fff;
+		padding: 4px 6px;
+		line-height: 16px;
+		margin-top: 16px;
+		}
+
+	.block-contact_form_blocks #edit-message-wrapper .resizable-textarea {
+		width: 386px;
+		}
+	
+	
+	.block-contact_form_blocks #edit-message-wrapper textarea {
+		border: 1px solid #d9e8f1;
+		padding: 8px 8px;
+		width: 368px;
+		height: 144px;
+		}
+		
+	.block-contact_form_blocks #edit-submit {
+		float: right;
+		margin-right: 3px;
+		display: inline; /* Avoid double margin float bug */
+		margin-top: 8px;
+		}
+
+	.block-contact_form_blocks #edit-submit:after {
+		clear: both;
+		}
+		
+
+
+
+
+/**********************************************************
+ *                 Search block form
+ **********************************************************/
+
+
+
+/**********************************************************
+ *                   Menu blocks
+ **********************************************************/
+/**
+ * Prefix these with the block id to style one menu only.
+ */
+
+#maincontent .block-menu_block {
+	margin-bottom: 12px;
+	}
+
+#maincontent .block-menu_block .menu li {
+	font-weight: bold;
+	list-style: disc inside;
+	color: #668ead;
+	margin-left: 6px;
+	margin-bottom: 2px;
+	}
+
+#maincontent .block-menu_block .menu .menu li {
+	font-weight: normal;
+	list-style: none;
+	padding-left: 12px;
+	}
+	
+#maincontent .block-menu_block a:link,
+#maincontent .block-menu_block a:visited {
+	color: #668ead;
+	}
+	
+	#maincontent .block-menu_block .menu .menu a:link,
+	#maincontent .block-menu_block .menu .menu a:visited {
+		color: #333;
+		}
+
+
+/**********************************************************
+ *                   Block item-list
+ **********************************************************/
+
+
+

@@ -1,0 +1,61 @@
+;----------// Theme Information
+
+  name        = Skojtehallen
+  description = Design til f&aelig;lles website for &Aring;rhus Kommunes sv&oslash;mmehaller og isbanen.
+
+
+;----------// Required Theme Information
+
+  ; Do not change core, engine or base theme - these are required.
+
+  core         = 6.x
+  engine       = phptemplate
+  screenshot   = images/screenshot_subtheme.png
+
+
+;----------// Stylesheets
+
+  ; block, comment, node, page and style CSS.
+
+  stylesheets[all][] = css/reset-min.css
+  stylesheets[all][] = css/page.css
+	stylesheets[all][] = css/typography.css
+	stylesheets[all][] = css/blocks.css
+
+;----------// Conditional Stylesheets
+  
+	; Set the conditional stylesheets that are processed by IE.
+
+  conditional-stylesheets[if lt IE 7][all][] = css/ie/ie6-and-below.css
+  ;conditional-stylesheets[if IE 7][all][] = css/ie/ie7.css
+
+
+;----------// Scripts
+
+  scripts[] = scripts/jquery.hoverIntent.minified.js
+  scripts[] = scripts/skojtebanen-behaviors.js
+  scripts[] = scripts/event-folder.js
+
+
+;----------// Regions
+
+  ; You can define new regions here.
+
+ 	regions[secondary_menu]      = Secondary Menu
+  regions[header]             = Menu (default)
+	regions[header_isbanen]			= Menu (isbanen)
+	regions[banner]             = Banner
+  regions[content_top]        = Content top
+  regions[content]            = Main Content
+  regions[content_subheading] = Below heading
+  regions[tertiary_content]   = Tertiary Content
+  regions[left]               = Sidebar Left
+  regions[right]              = Sidebar Right
+		
+
+;----------// Features
+
+  features[] = logo
+  features[] = name
+  features[] = favicon
+

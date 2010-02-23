@@ -1,0 +1,353 @@
+
+/**
+ * @file typography.css
+ * Basic text formatting.
+ */
+ 
+/**
+ * Color codes
+ *
+ * Skøjtehallen: 
+ * - Headings: #1A4166
+ * - Sidebar Lower Headings: #668ead
+ * 
+ * Isbanen:
+ * - Heading: #002337
+ * - Sidebar Lower Heading: #668ead;
+ */ 
+
+
+
+/**********************************************************
+ *                   Base formatting
+ **********************************************************/
+
+ body {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333;
+	line-height: 15px;
+ 	}
+
+/**********************************************************
+ *                   Link styles
+ **********************************************************/
+
+a:link,
+a:visited {
+	color: #1a4166;
+	text-decoration: none;
+	}
+	
+a:visited {
+	color: #668ead;
+	}	
+
+a:hover,
+a:active {
+	text-decoration: underline;
+	}
+
+
+#sidebar-left .more-link a:link,
+#sidebar-left .more-link a:visited {
+	color: #1a4166;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 17px;
+	margin-bottom: 2px;
+	text-decoration: none;
+	}
+	
+	#block-views-Arrangementsoversigt-block_1 .more-link a:link,
+	#block-views-Arrangementsoversigt-block_1 .more-link a:visited {
+		color: #668ead;
+		}
+	
+#sidebar-left .more-link a:hover,
+#sidebar-left .more-link a:active {	
+	text-decoration: underline;
+	}
+	
+#header-blocks .menu-name-primary-links li.expanded .menu a:link,
+#header-blocks .menu-name-menu-isbanen-links li.expanded .menu a:link,
+#header-blocks .menu-name-primary-links li.expanded .menu a:visited,
+#header-blocks .menu-name-menu-isbanen-links li.expanded .menu a:visited {
+	color: #fff;
+	text-decoration: none;
+	}
+
+.menu-name-secondary-links a:link, 
+.menu-name-secondary-links a:visited {
+	text-decoration: none;
+	font-size: 10px;
+	color: #1a4165;
+	}
+
+.menu-name-secondary-links a:hover, 
+.menu-name-secondary-links a:active {
+	text-decoration: underline;
+	}
+	
+ul.views-summary li a:link,
+ul.views-summary li a:visited {
+	color: #668ead;
+	}
+
+	ul.views-summary li a:link .active,
+	ul.views-summary li a:visited .active {
+		color: #1a4166;
+		}
+	
+.views-field-view-node a:visited {
+	color: #1a4166;
+	}
+
+
+/**********************************************************
+ *                   Headers
+ **********************************************************/
+  
+#maincontent h1,
+.sidebar h2 {
+ 	color: #1a4166;
+	font-size: 18px;
+	margin-bottom: 12px;
+ 	}
+	
+	#block-views-Arrangementsoversigt-block_1 h2,
+	#block-views-Arrangementsoversigt-block_1 h3 {
+		color: #668ead;
+		}
+	
+#maincontent h2,
+.sidebar h3 {
+	color: #1a4166;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 17px;
+	margin-bottom: 2px;
+	}
+	
+	.sidebar h3 a:link,
+	.sidebar h3 a:visited {
+		color: inherit;
+		text-decoration: none;
+		}
+	
+	.sidebar h3 a:hover,
+	.sidebar h3 a:active,
+	.sidebar h3 a:focus {
+		text-decoration: underline;
+		}
+		
+	#maincontent h2 a:link,
+	#maincontent h2 a:visited {
+		text-decoration: none;
+		color: inherit;
+		}
+		
+	#maincontent h2 a:hover,
+	#maincontent h2 a:active {
+		text-decoration: underline;
+		}
+		
+#maincontent p.news-date,
+#maincontent p.event-date,
+.page-nyheder #maincontent h2.news-title,
+.page-arrangementer #maincontent h2.news-title  {
+	color: #668ead;
+	font-size: 11px;
+	margin-bottom: 8px;
+	font-weight: bold;
+	}
+
+.page-nyheder #maincontent h2.news-title,
+.page-arrangementer #maincontent h2.news-title {
+	margin-bottom: 0;
+	}
+
+		
+/**********************************************************
+ *                   Content
+ **********************************************************/
+
+#maincontent b, #maincontent strong {
+	font-weight: bold;
+	}
+ 
+#maincontent em, #maincontent i {
+	font-style: italic;
+	} 
+
+#maincontent p {
+ 	margin-bottom: 15px;
+	}
+
+#maincontent .field-type-text ul,
+#maincontent .field-type-text ol {
+ 	margin-bottom: 15px;
+	padding-left: 35px;
+	}
+	
+#maincontent .field-type-text ul li {
+	margin-bottom: 2px;
+	list-style: outside url(../images/bullet-ul-default.gif)
+	}
+#maincontent .field-type-text ol li {
+	margin-bottom: 2px;
+	list-style: outside decimal;
+	}
+	
+	
+#maincontent blockquote {
+	color: #1a4166;
+	font-style: italic;
+	quotes: '"' '"';
+	}
+		
+	#maincontent blockquote p:last-child:after {
+		content: close-quote;
+		}
+
+	#maincontent blockquote p:first-child:before {
+		content: open-quote;
+		}
+		
+#maincontent p.author {
+	text-align: right;
+	font-size: 10px;
+	font-style: italic;
+	margin-right: 8px;
+	}
+	
+#maincontent blockquote + p.author {
+	margin-top: -12px;
+	}
+
+/**
+ * Tabeller
+ */
+
+.field-type-text table {
+	width: 386px; /* Fixed width in MSIE6 */
+	margin-bottom: 15px;
+	}
+	
+	/* Flexible width in newer browsers */
+	.field-type-text .field-item>table {
+	width: 99%;
+	}
+	
+	
+/* Remode drupal default headers */
+.field-type-text tbody,
+.field-type-text .layout-table {
+	border-top: none;
+	}
+	
+	/* Style content */
+	.field-type-text tbody td {
+		border: 1px dotted #ccc;
+		border-top: none;
+		border-collapse: collapse;
+		padding: 0 8px;
+		line-height: 28px;
+		color: #666;
+		}
+		
+		/* Style layout-tables if used */
+		.layout-table tbody td {
+			border: none;
+			padding: 0 4px 4px 0;
+			line-height: 15px;
+			color: #333;
+			}
+
+/* Sæt background på table.table-headers */
+.field-type-text table.table-headers {
+	background-color: transparent;
+	background-image: url(../images/back-table-header.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	}
+	
+.field-type-text table.table-headers thead td,
+.field-type-text table.table-headers thead th,
+.field-type-text table.table-headers thead tr {
+	height: 29px;
+	line-height: 29px;
+	}
+
+	/* Style header cells */
+	.field-type-text table.table-headers thead th,
+	.field-type-text table.table-headers thead td {
+		padding: 0 8px;
+		border: none;
+		color: #fff;
+		font-weight: bold;
+		border-left: 1px dotted #ccc;
+		}
+		
+	/* Style leftmost header cell */
+	.field-type-text table.table-headers thead th:first-child,
+	.field-type-text table.table-headers thead td:first-child {
+		background: transparent url(../images/back-table-header.png) left top no-repeat;
+		position: relative;
+		left: -1px;
+		display: block;
+		border-left: none;
+		}
+		
+
+
+/**********************************************************
+ *                   Footer
+ **********************************************************/
+	
+#footer {
+	font-size: 10px;
+	color: #1a4165;
+	text-align: center;
+	}
+
+
+/**********************************************************
+ *                   Isbanen farveskema
+ *
+ *	M�rk bl�: #002337;
+ *  Lys bl�: #829bb0;	
+ *
+ **********************************************************/	
+	
+.isbanen #maincontent h1,
+.isbanen .sidebar h2,
+.isbanen #maincontent h2,
+.isbanen .sidebar h3 {
+	color: #002337;
+	}
+	
+	.isbanen #block-views-Arrangementsoversigt-block_1 h2,
+	.isbanen #block-views-Arrangementsoversigt-block_1 h3,
+	.isbanen #block-views-Arrangementsoversigt-block_1 .more-link a:link,
+	.isbanen #block-views-Arrangementsoversigt-block_1 .more-link a:visited {
+		color: #668ead;
+		}
+	
+.isbanen #maincontent .field-type-text ul li {
+	list-style: outside url(../images/bullet-ul-isbanen.gif)
+	}
+	
+.isbanen #maincontent blockquote {
+	color: #002337;
+	}
+	
+.isbanen .field-type-text table.table-headers {
+	background-image: url(../images/back-table-header-isbanen.png);
+	}
+
+	/* Style leftmost header cell */
+	.isbanen .field-type-text table.table-headers thead th:first-child,
+	.isbanen .field-type-text table.table-headers thead td:first-child {
+		background: transparent url(../images/back-table-header-isbanen.png) left top no-repeat;
+		}
