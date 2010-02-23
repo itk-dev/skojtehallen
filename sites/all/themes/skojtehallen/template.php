@@ -45,6 +45,11 @@ function skojtehallen_preprocess_page(&$vars) {
     // Check for edit page
     $last = array_reverse($alias_parts);
     $last_part = $last[0];
+    if ($last_part == 'data.xml') {
+      $vars['template_files'] = array('page-xml');
+      return;
+    }
+
     if ($last_part != "edit") {
 
       // Generate array of templates
@@ -85,6 +90,9 @@ function skojtehallen_preprocess_page(&$vars) {
         }
       }
     } // End check for edit page
+    else if ($last_part == 'data.xml') {
+      $vars['template_files'] = 'page-xml';
+    }
   } // End check for path module
 	
   // Generate random style for changing images
