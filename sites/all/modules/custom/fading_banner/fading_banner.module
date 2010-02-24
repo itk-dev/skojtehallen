@@ -1,50 +1,55 @@
 <?php
 
-include_once 'data_parser.php';
-
 define('FADING_BANNER_ICE', 'isbanen');
 define('FADING_BANNER_SKOJTEHAL', 'skojtehal');
 
 /**
- * Implementation of hook_nodeapi
+ * Implementation of hook_menu().
  */
-function fading_banner_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
-  if ($node->type == 'fading_banner') {
-    switch ($op) {
-      case 'insert':
-        // Update xml file used by the flash program
-        $data = _fading_banner_get_data($node->field_association[0][value]);
-        $data->addBanner($node->field_fading_banner[0]);
-        break;
-
-      case 'update':
-        $data = _fading_banner_get_data($node->field_association[0][value]);
-        $data->updateBanner($node->field_fading_banner[0]);
-        break;
-
-      case 'delete':
-        $data = _fading_banner_get_data($node->field_association[0][value]);
-        $data->removeBanner($node->field_fading_banner[0]);
-        break;
-    }
-  }
+function fading_banner_menu() {
+  $items['banner/%/data.xml'] = array(
+    'page callback' => '_fading_banner_xml',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
 }
 
 /**
- * Returns DataParser object based on input type (Fading banner type)
+ * Generates xml output for the flash banner as a menu-callback.
  *
  * @param string $type
- * @return object DataParser
  */
-function _fading_banner_get_data($type) {
-  $data = NULL;
-  if ($type == 'Skøjtehallen') {
-    $data = new DataParser(FADING_BANNER_SKOJTEHAL);
+function _fading_banner_xml($type) {
+  drupal_set_header('Content-Type: text/xml; charset=utf-8');
+  echo '<?xml version="1.0" encoding="utf-8"?>
+        <data delay="4000">
+          <frontImage>/sites/all/modules/custom/fading_banner/img/front.png</frontImage>
+          ' ._fading_banner_get_images_link($type). '
+        </data>';
+}
+
+/**
+ * Generates image links for xml output
+ *
+ * @param string $type
+ * @return string $str
+ *    Images link of type given
+ */
+function _fading_banner_get_images_link($type) {
+  $str = '';
+  $statement = 'SELECT filepath
+                FROM files
+                WHERE fid IN (SELECT field_fading_banner_fid AS fid
+                              FROM content_type_fading_banner
+                              WHERE field_association_value = \'%s\')';
+  $query = db_query($statement, ($type == FADING_BANNER_SKOJTEHAL ? 'Skøjtehallen' : 'Isbanen'));
+  while ($row = db_fetch_array($query)) {    
+     $str .= '<img>/' .$row['filepath']. '</img>';
   }
-  else {
-    $data = new DataParser(FADING_BANNER_ICE);
-  }
-  return $data;
+
+  return $str;
 }
 
 /**
@@ -73,7 +78,7 @@ function fading_banner_theme() {
  */
 function theme_fading_banner($id, $flash_location) {
   drupal_add_js('var flashvars = {
-                        xmlPath: "/'. $flash_location .'/'. $id .'.xml"
+                        xmlPath: "/banner/'. $id .'/data.xml"
                  };
 		 var params = {
 			menu: "false",
