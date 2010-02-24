@@ -48,7 +48,6 @@ function _fading_banner_get_images_link($type) {
   while ($row = db_fetch_array($query)) {    
      $str .= '<img>/' .$row['filepath']. '</img>';
   }
-
   return $str;
 }
 
