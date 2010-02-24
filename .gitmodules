@@ -1,0 +1,6 @@
+[submodule "sites/all/modules/custom/banner"]
+	path = sites/all/modules/custom/banner
+	url = git://github.com/cableman/random-banner.git
+[submodule "sites/all/modules/custom/pathconverter"]
+	path = sites/all/modules/custom/pathconverter
+	url = git://github.com/cableman/pathconverter.git
