@@ -1,9 +1,6 @@
 [submodule "sites/all/modules/custom/banner"]
 	path = sites/all/modules/custom/banner
-	url = ssh://itk-dev-01//home/www/repository/drupal/banner
+	url = git://github.com/cableman/random-banner.git
 [submodule "sites/all/modules/custom/pathconverter"]
 	path = sites/all/modules/custom/pathconverter
-	url = ssh://itk-dev-01//home/www/repository/drupal/pathconverter/
-[submodule "sites/all/modules/custom/simple_event"]
-	path = sites/all/modules/custom/simple_event
-	url = ssh://itk-dev-01//home/www/repository/drupal/simple_event
+	url = git://github.com/cableman/pathconverter.git
