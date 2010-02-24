@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * Implmentation of hook_theme
+ *
+ * @return array
+ */
+function simple_event_theme() {
+  return array(
+    'simple_event_overview' => array(
+      'arguments' => array('dates' => null),
+    ),
+  );
+}
+
+/**
+ * Styles the block Mon-Year output as an unorder list.
+ *
+ * @param array $dates
+ * @return string html
+ */
+function theme_simple_event_overview($dates = null) {
+  $html = "<ul>";
+  foreach ($dates as $date) {
+    $date = strtotime($date);
+    $html .= '<li><a href="/arrangementer/' .date('Ym', $date). '">' .t(date('F', $date)). ' ' .date('Y', $date). '</a></li>';
+  }
+  $html .= "</ul>";
+  return $html;
+}
+
+/**
+ * Implementation of hook_block
+ */
+function simple_event_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case "list":
+      $blocks[0]['info'] = t('Simple event months');
+      $blocks[0]['cache'] = BLOCK_NO_CACHE;
+      return $blocks;
+      break;
+
+    case "view":
+      $block['subject'] = t('Months');
+      $block['content'] = theme('simple_event_overview', _simple_event_overview());
+      return $block;
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_views_api() {
+ */
+function simple_event_views_api() {
+  return array(
+    'api' => 2.0,
+  );
+}
+
+function _simple_event_overview() {
+
+  $dates = array();
+
+  $result = db_query('SELECT cfas.field_arrangement_start_value AS start_value,
+                             cfas.field_arrangement_start_value2 as end_value
+                      FROM {content_field_arrangement_start} cfas,
+                           {node} n,
+                          (SELECT nid, max(vid) as vid
+                           FROM {content_field_arrangement_start}
+                           GROUP BY nid) as t
+                      WHERE cfas.nid = n.nid
+                        AND t.nid = cfas.nid
+                        AND t.vid = cfas.vid
+                        AND n.status = 1');
+  while ($row = db_fetch_object($result)) {
+    $dates[] = date('Y-m', strtotime($row->start_value));
+    $dates[] = date('Y-m', strtotime($row->end_value));
+  }
+
+  sort($dates);
+  return array_unique($dates);
+}

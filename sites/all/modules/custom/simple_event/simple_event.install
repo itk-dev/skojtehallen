@@ -1,0 +1,29 @@
+<?php
+
+// $Id$
+
+/**
+ * @file installes the default event content type.
+ */
+
+
+include_once 'cck_simple_event.inc';
+
+/**
+ * Implementation of hook_install
+ */
+function simple_event_install() {
+  // Create event content-type
+  _simple_event_cck_install();
+}
+
+/**
+ * Implementation of hook_uninstall
+ */
+function simple_event_uninstall() {
+  // Remove settings.
+  
+
+  // Remove the event content type
+  node_type_delete('event');
+}
