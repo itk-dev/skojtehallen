@@ -1,5 +1,5 @@
 <?php
-// $Id: views.module,v 1.341.2.4 2010/01/05 00:04:30 merlinofchaos Exp $
+// $Id: views.module,v 1.341.2.1 2009/11/30 19:11:35 merlinofchaos Exp $
 /**
  * @file
  * Primarily Drupal hooks and global API functions to manipulate views.
@@ -14,13 +14,6 @@
  */
 function views_api_version() {
   return 2.0;
-}
-
-/**
- * Implementation of hook_init().
- */
-function views_init() {
-  drupal_add_css(drupal_get_path('module', 'views') . '/css/views.css');
 }
 
 /**
@@ -700,16 +693,8 @@ function views_get_plugin($type, $plugin) {
  */
 function &views_get_default_view($view_name) {
   $null = NULL;
-
-  // Attempt to load individually cached view from cache.
-  views_include('cache');
-  $data = views_cache_get("views_default:{$view_name}", TRUE);
-  if (isset($data->data) && is_object($data->data)) {
-    return $data->data;
-  }
-
-  // Otherwise, allow entire cache to be rebuilt.
   $cache = views_discover_default_views();
+
   if (isset($cache[$view_name])) {
     return $cache[$view_name];
   }
@@ -861,10 +846,6 @@ function views_get_view($name, $reset = FALSE) {
     return;
   }
   elseif (empty($view) && !empty($default_view)) {
-    $status = variable_get('views_defaults', array());
-    if (isset($status[$default_view->name])) {
-      $default_view->disabled = $status[$default_view->name];
-    }
     $default_view->type = t('Default');
     return $default_view->clone_view();
   }

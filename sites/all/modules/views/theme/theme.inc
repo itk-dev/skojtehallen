@@ -1,5 +1,5 @@
 <?php
-// $Id: theme.inc,v 1.84.2.7 2009/12/24 01:08:31 merlinofchaos Exp $
+// $Id: theme.inc,v 1.84.2.4 2009/11/30 19:05:47 merlinofchaos Exp $
 
 /**
  * @file theme.inc
@@ -114,6 +114,7 @@ function template_preprocess_views_view(&$vars) {
     $vars['admin_links'] = '';
     $vars['admin_links_raw'] = array();
   }
+  views_add_css('views');
 
   // Our JavaScript needs to have some means to find the HTML belonging to this
   // view.
@@ -205,8 +206,7 @@ function template_preprocess_views_view_fields(&$vars) {
  * this: @code { $row->{$field->field_alias} @endcode
  */
 function theme_views_view_field($view, $field, $row) {
-  // Reference safe for PHP 4:
-  return $view->field[$field->options['id']]->advanced_render($row);
+  return $field->advanced_render($row);
 }
 
 /**
@@ -364,9 +364,8 @@ function template_preprocess_views_view_table(&$vars) {
     }
   }
 
-  $count = 0;
   foreach ($vars['rows'] as $num => $row) {
-    $vars['row_classes'][$num][] = ($count++ % 2 == 0) ? 'odd' : 'even';
+    $vars['row_classes'][$num][] = ($num % 2 == 0) ? 'odd' : 'even';
   }
 
   $vars['row_classes'][0][] = 'views-row-first';
@@ -552,6 +551,7 @@ function template_preprocess_views_view_row_rss(&$vars) {
  * Default theme function for all filter forms.
  */
 function template_preprocess_views_exposed_form(&$vars) {
+  views_add_css('views');
   $form = &$vars['form'];
 
   // Put all single checkboxes together in the last spot.

@@ -1,32 +1,4 @@
 CHANGELOG for Views 2 for Drupal 6
-Views 2.x-dev
-  Bug fixes:
-    o #650152: Book: Top Level Book relationship broken by earlier patch and caused broken query.
-    o #651244 by dagmar: Other instances of <Any> are not translatable and should not be run trhough t().
-    o #653628: init declaration for views_handler_filter_many_to_one() did not match parent init.
-    o #657700: Fixed 'Override normal sorting if click sorting is used' setting on the table style plugin that was broken by #622602.
-    o #473698 by jrglasgow: Fix error in help text regarding custom theming.
-    o #387448 by joachim: Provide better help text to describe how to use sticky sort.
-    o #652716 by dagmar: "no single" flag on filter objects not completely respected, causing improper default filters.
-    o #621780 by PaulMagrath: Even/Odd classes wrong with grouping due to row numbering no longer being sequential.
-    o #642328 by dboulet: Always include views.css since a site using Views probably uses it in blocks anyway.
-    o #629840 by fuerst: Search filter caused bad query on PostgreSQL.
-    o #329390: views_break_phrase could break under PHP4 due to reference error.
-    o #652742: Replacement pattern tokens for multiple fields did not work.
-    o #659510 by Souvent22 and dereine: glossary AJAX broken.
-    o #335599 by miro_dietiker: Remove the 95% width constraint on the admin hover links to be nicer to themes.
-    o #670308 by Mike Wacker: Make views_get_view() properly set disabled flag when retrieving default views.
-    o #536910 by dereine: Theme and language should be taken into account during caching.
-    o #627402 by dereine: Aggregator description needed more controllable input filtering.
-    o #416264 by bec: Dependency processing could cause exposed forms to disappear if used multiple times on the same page.
-    o #657442 by nicholasThompson and dagmar: Include "mail" field in user picture so that modules that need this do not break when rendering picture in Views.
-    o #329044 by gordon: Check to see if access plugin exists before using to prevent whitescreens.
-    o #455364 by sdrycroft: Prevent modules trying to define the same default view name from breaking everything.
-
-  Other changes:
-    o #570558 by yhahn: Segment default views caching to conserve memory used by Views during normal operation.
-    o #661676 by dagmar: Improve error handling during AJAX failures.
-
 Views 2.8 (Dec 02, 2009)
   Bug fixes:
     o #622602: Missing ORDER BY in some views with tables due to incorrect test for default table sorting.
@@ -52,7 +24,7 @@ Views 2.8 (Dec 02, 2009)
     o #348130 by dereine: "<Any>" should not be translatable since it looks like HTML.
     o #630430 by cafuego: Fix typo in argument text.
     o #370651: Make Views AJAX work with mod_security enabled.
-    o #648438 by dww: In rare circumstances, unnecessary term_node tables could be joined in when adding term_data relationships.
+    o #648438: In rare circumstances, unnecessary term_node tables could be joined in when adding term_data relationships.
     o #639430 by dagmar: theme.inc warning when comments are displayed without links.
 
   Other changes:
