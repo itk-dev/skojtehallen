@@ -97,9 +97,11 @@ ul.views-summary li {
  */
  
 div.block-banner {
-	margin-top: 35px;
+	margin-top: 23px;
+	padding-top: 12px;
 	overflow: hidden;
 	clear: both;
+	border-top: 1px dotted #ddd;
 	}
 	
 .banner-type-ii #banner_0 {
@@ -116,8 +118,8 @@ div.block-banner {
 .block-contact_form_blocks {
 	margin: 25px 0 0;
 	padding: 15px 0;
-	border-top: 2px dotted #ccc;
-	border-bottom: 2px dotted #ccc;
+	border: 1px dotted #ddd;
+	border-width: 1px 0;
 	overflow: hidden;
 	}
 	

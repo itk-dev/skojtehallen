@@ -12,7 +12,7 @@
   <?php if (empty($admin)) { ?>
   <div id="aak-topbar">
     <div id="aak-topbar-inner">
-      <a href="http://www.aarhuskommune.dk/"><?php print t("Go to aarhuskommmune.dk"); ?></a>
+      <a href="http://www.aarhuskommune.dk/" rel="external"><?php print t("Go to aarhuskommmune.dk"); ?></a>
     </div>
   </div>
   <?php } ?>
