@@ -141,7 +141,7 @@ body {
 #site-name {
 	float: left;
 	height: 65px;
-	width: 416px;
+	width: 300px;
 	overflow: hidden;
 	position: relative;
 	}
@@ -151,7 +151,7 @@ body {
 		top: 0;
 		left: 0;
 		height: 65px;
-		width: 416px;
+		width: 300px;
 		background: transparent url(../images/back-title-skojtebanen.jpg) left top no-repeat;
 		}
 
@@ -396,7 +396,7 @@ body {
 .menu-name-secondary-links .menu {
 	float: right;
 	margin-top: 45px;
-	width: 180px;
+	width: 210px;
 	}
 
 	.menu-name-secondary-links .menu li {
@@ -408,6 +408,25 @@ body {
 			margin-left: 4px;
 			padding-left: 4px;
 			}
+
+	.menu-name-secondary-links .menu li.menu-mlid-649 {
+	   width: 84px;
+	   position: relative;
+	   height: 1em;
+	   display: inline-block;
+	   }
+	   
+	   .menu-name-secondary-links .menu li.menu-mlid-649 a {
+	       height: 50px;
+	       width: 76px;
+	       display: block;
+	       position: absolute;
+	       left: 0;
+	       bottom: 0;
+	       background: transparent url(../images/puls-logo-top.png) left top no-repeat;
+	       text-indent: -999px;
+	       }		
+			
 		
 	.menu-name-secondary-links .menu li.last a {
 		border: none;
