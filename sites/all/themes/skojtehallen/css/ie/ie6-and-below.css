@@ -161,6 +161,14 @@
 		background-position: -552px -40px;
 		}
 
+/* Subsite links */
+.menu-name-primary-links .menu .menu-mlid-672 a {
+	width: 60px;
+	background-position: -607px 1px;
+	background-color: transparent;
+	}		
+		
+
 /* ******************** Isbanen-menu ******************/
 .menu-name-menu-isbanen-links .menu .menu-mlid-474 a {
 	width: 67px;
@@ -215,7 +223,14 @@
 	.menu-name-menu-isbanen-links .menu .menu-mlid-480 a:hover
 	 {
 		background-position: -402px -120px;
-		}		
+		}	
+		
+/* Subsite links */
+.menu-name-menu-isbanen-links .menu .menu-mlid-671 a {
+	width: 86px;
+	background-position: -606px -80px;
+	background-color: transparent;
+	}	
 
 
 /* ******************** Secondary links *******************/
