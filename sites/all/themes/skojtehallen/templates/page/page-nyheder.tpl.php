@@ -30,7 +30,6 @@
         	<div class="region-inner">
           	<?php print $header; ?>
             <?php print $header_isbanen; ?>
-            <div id="subsite-menu"><?php print $subsite_menu; ?></div>
         	</div>
       	</div> <!-- /header-blocks -->
       <?php endif; ?>

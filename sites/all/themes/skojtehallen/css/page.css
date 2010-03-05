@@ -335,6 +335,14 @@ body {
 	#header-blocks .menu-name-primary-links .menu .menu-mlid-469>a:hover {
 		background-position: -552px -40px;
 		}
+		
+/* Subsite links */
+#header-blocks .menu-name-primary-links .menu .menu-mlid-672>a {
+	width: 67px;
+	background-position: -604px 1px;
+	background-color: transparent;
+	}
+
 
 /* ******************** Isbanen-menu ******************/
 #header-blocks .menu-name-menu-isbanen-links .menu .menu-mlid-474>a {
@@ -391,6 +399,14 @@ body {
 	 {
 		background-position: -402px -120px;
 		}
+		
+/* Subsite links */
+#header-blocks .menu-name-menu-isbanen-links .menu .menu-mlid-671>a {
+	width: 86px;
+	background-position: -606px -80px;
+	background-color: transparent;
+	}
+
 
 /* ******************** Secondary links *******************/
 .menu-name-secondary-links .menu {
