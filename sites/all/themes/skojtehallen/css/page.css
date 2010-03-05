@@ -338,8 +338,8 @@ body {
 		
 /* Subsite links */
 #header-blocks .menu-name-primary-links .menu .menu-mlid-672>a {
-	width: 67px;
-	background-position: -604px 1px;
+	width: 60px;
+	background-position: -607px 1px;
 	background-color: transparent;
 	}
 
@@ -657,3 +657,9 @@ body {
   margin-right: 10px;
   margin-top: 8px;
 }
+
+	   
+	   .isbanen .menu-name-secondary-links .menu li.menu-mlid-670 a {
+	       background: transparent url(../images/puls-logo-top-isbanen.jpg) left top no-repeat;
+	       }		
+			
