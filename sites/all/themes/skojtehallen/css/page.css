@@ -409,22 +409,23 @@ body {
 			padding-left: 4px;
 			}
 
-	.menu-name-secondary-links .menu li.menu-mlid-649 {
+	.menu-name-secondary-links .menu li.menu-mlid-670 {
 	   width: 84px;
 	   position: relative;
 	   height: 1em;
 	   display: inline-block;
 	   }
 	   
-	   .menu-name-secondary-links .menu li.menu-mlid-649 a {
+	   .menu-name-secondary-links .menu li.menu-mlid-670 a {
 	       height: 50px;
 	       width: 76px;
 	       display: block;
 	       position: absolute;
 	       left: 0;
-	       bottom: 0;
-	       background: transparent url(../images/puls-logo-top.png) left top no-repeat;
+	       bottom: -6px;
+	       background: transparent url(../images/puls-logo-top.jpg) left top no-repeat;
 	       text-indent: -999px;
+	       border: none;
 	       }		
 			
 		
