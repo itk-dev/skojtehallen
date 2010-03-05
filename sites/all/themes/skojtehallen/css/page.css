@@ -434,48 +434,7 @@ body {
 		}
 
 
-/**********************************************************
- *                      Subsite menu
- **********************************************************/
 
-#subsite-menu {
-	position: absolute;
-	right: -71px;
-	top: 128px;
-	width: 20px;
-	}
-
-	#subsite-menu a {
-		display: block;
-		width: 19px;
-		height: 96px;
-		background: transparent url(../images/back-menu-subsite-default.png) right top no-repeat;
-		text-indent: -9999em;
-		}
-
-	#subsite-menu a:hover {	
-		width: 27px;
-		}
-		
-	.jquery #subsite-menu a:hover {
-		width: 19px;
-		}
-		
-	#subsite-menu a:focus {
-		outline: none;
-		border: 1px dotted red;
-		margin: -1px;
-		}
-
-/*		
-.isbanen #subsite-menu {
-	top: 184px;
-	}
-*/
-.isbanen #subsite-menu a {
-	background: transparent url(../images/back-menu-subsite-isbanen.png) right top no-repeat;
-	height: 114px;
-	}
 
 /**********************************************************
  *                       Banner
