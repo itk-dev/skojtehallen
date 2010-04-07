@@ -64,7 +64,12 @@ function skojtehallen_preprocess_page(&$vars) {
 
       // Add date to News
       if ($node->type == 'news') {
-        $vars['news_date'] = format_date($node->created, 'custom', 'F Y');
+        $vars['news_date'] = date_format_date(new DateTime(date('Y-m-d H:i:s', $node->created)), 'custom', 'F Y');
+      }
+
+      // Fix news title in month oveview
+      if ($alias_parts[0] == 'nyheder' && count($alias_parts) == 2) {
+	$vars['node_title'] = date_format_date(new DateTime(substr($alias_parts[1], 0, 4).'-'.substr($alias_parts[1], -2).'-01'), 'custom', 'F Y');
       }
       
       // Add date to event
@@ -72,11 +77,11 @@ function skojtehallen_preprocess_page(&$vars) {
         $no_of_dates = count($node->field_arrangement_start);
         if ($no_of_dates == 1) {
           // Not a repeating event
-          $vars['event_date'] = format_date(strtotime($node->field_arrangement_start[0]['value']), 'custom', 'F Y');
+          $vars['event_date'] = date_format_date(new DateTime($node->field_arrangement_start[0]['value']), 'custom', 'F Y');
         }
         else {
           // Repeating event
-          $vars['event_date'] = format_date(strtotime($node->field_arrangement_start[0]['value']), 'custom', 'F Y') .' - '. format_date(strtotime($node->field_arrangement_start[$no_of_dates - 1]['value']), 'custom', 'F Y');
+          $vars['event_date'] = date_format_date(new DateTime($node->field_arrangement_start[0]['value']), 'custom', 'F Y') .' - '. date_format_date(new DateTime($node->field_arrangement_start[$no_of_dates - 1]['value']), 'custom', 'F Y');
         }
 
         global $user;

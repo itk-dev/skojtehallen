@@ -49,6 +49,11 @@
 					<?php print $content_subheading; ?>
 
           <?php if ($news_date): ?><p class="news-date"><?php print $news_date; ?></p><?php endif; ?>
+	  <?php 
+	    if ($node_title) {
+ 		$title = $node_title;
+	    }
+	  ?>
           <?php if ($title): ?><h2 class="news-title"><?php print $title; ?></h2><?php endif; ?>
           <?php if ($tabs): ?>
             <div class="local-tasks"><div class="clear-block">
