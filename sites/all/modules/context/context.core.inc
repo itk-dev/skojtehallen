@@ -1,5 +1,5 @@
 <?php
-// $Id: context.core.inc,v 1.1.2.3.2.27 2010/04/29 16:54:34 darthsteven Exp $
+// $Id: context.core.inc,v 1.1.2.3.2.30 2010/12/24 21:30:24 darthsteven Exp $
 
 /**
  * Implementation of hook_theme().
@@ -349,7 +349,7 @@ function context_node_condition(&$node, $op) {
   }
 
   // Implementation of context for taxonomy.
-  if (module_exists('taxonomy') && $node->taxonomy) {
+  if (module_exists('taxonomy') && is_array($node->taxonomy)) {
     // Set context for terms
     foreach ($node->taxonomy as $term) {
       context_set_by_condition('taxonomy', $term->vid .':'. $term->tid);
@@ -683,11 +683,15 @@ function context_page_alter(&$vars) {
  * Implementation of hook_context_page_condition().
  */
 function context_context_page_condition() {
-  // Menu trail condition integration
-  $trail = menu_get_active_trail();
-  foreach ($trail as $item) {
-    if (!empty($item['href'])) {
-      context_set_by_condition('menu_trail', $item['href']);
+  // See if any contexts will be set by computing this condition.
+  $map = context_condition_map();
+  if (!empty($map['menu_trail'])) {
+    // Menu trail condition integration
+    $trail = menu_get_active_trail();
+    foreach ($trail as $item) {
+      if (!empty($item['href'])) {
+        context_set_by_condition('menu_trail', $item['href']);
+      }
     }
   }
 }
@@ -697,8 +701,8 @@ function context_context_page_condition() {
  */
 function context_preprocess_page(&$vars) {
   $info = context_active_values('theme_section');
-  $vars['section_title'] = !empty($info['title']) ? $info['title'] : '';
-  $vars['section_subtitle'] = !empty($info['subtitle']) ? $info['subtitle'] : '';
+  $vars['section_title'] = !empty($info['title']) ? check_plain($info['title']) : '';
+  $vars['section_subtitle'] = !empty($info['subtitle']) ? check_plain($info['subtitle']) : '';
 
   // Merge body classes from *any* active contexts.
   $classes = array();
@@ -707,7 +711,7 @@ function context_preprocess_page(&$vars) {
       $classes[$context->theme_section['class']] = $context->theme_section['class'];
     }
   }
-  $vars['body_classes'] .= !empty($classes) ? ' '. implode(' ', $classes) : '';
+  $vars['body_classes'] .= !empty($classes) ? ' '. check_plain(implode(' ', $classes)) : '';
 
   // If primary + secondary links are pointed at the same menu, provide
   // contextual trailing by default.

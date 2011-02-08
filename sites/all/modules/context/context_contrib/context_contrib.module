@@ -1,5 +1,5 @@
 <?php
-// $Id: context_contrib.module,v 1.1.2.2.2.12 2010/05/21 14:53:42 darthsteven Exp $
+// $Id: context_contrib.module,v 1.1.2.2.2.13 2010/12/23 15:26:22 darthsteven Exp $
 
 /**
  * Implementation of hook_context_conditions().
@@ -196,7 +196,14 @@ function css_injector_context_page_reaction() {
   if (!empty($css_rules)) {
     foreach ($css_rules as $crid) {
       if ($css_rule = _css_injector_load_rule($crid)) {
-        drupal_add_css(file_create_path($css_rule['file_path']), 'module', $css_rule['media'], $css_rule['preprocess']);
+        if (function_exists('_css_injector_rule_path')) {
+          // Support for CSS Injector 1.4
+          drupal_add_css(_css_injector_rule_path($crid), 'module', $css_rule['media'], $css_rule['preprocess']);
+        }
+        else {
+          drupal_add_css(file_create_path($css_rule['file_path']), 'module', $css_rule['media'], $css_rule['preprocess']);
+        }
+
       }
     }
   }

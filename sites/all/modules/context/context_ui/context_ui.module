@@ -1,5 +1,5 @@
 <?php
-// $Id: context_ui.module,v 1.13.2.48.2.3 2010/04/24 15:39:13 darthsteven Exp $
+// $Id: context_ui.module,v 1.13.2.48.2.4 2010/12/23 14:52:27 darthsteven Exp $
 
 /**
  * Implementation of hook_theme().
@@ -210,11 +210,16 @@ function context_ui_form_block_admin_configure_alter(&$form, $form_state) {
             'fragment' => 'context-ui-blocks',
             'query' => 'destination='. $_GET['q'],
           );
-          if ($context->system) {
-            $row[] = l(t('Override visibility'), "admin/build/context/$identifier/clone", $options);
-          }
-          else {
-            $row[] = l(t('Edit visibility'), "admin/build/context/{$context->cid}", $options);
+          switch ($context->type) {
+            case CONTEXT_STORAGE_DEFAULT:
+              $row[] = l(t('Override visibility'), "admin/build/context/$identifier/clone", $options);
+              break;
+            case CONTEXT_STORAGE_OVERRIDDEN:
+              $row[] = l(t('Edit visibility'), "admin/build/context/{$context->cid}", $options);
+              break;
+            case CONTEXT_STORAGE_NORMAL:
+              $row[] = l(t('Edit visibility'), "admin/build/context/{$context->cid}", $options);
+              break;
           }
           $rows[] = $row;
         }
