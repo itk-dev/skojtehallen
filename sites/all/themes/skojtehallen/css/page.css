@@ -336,7 +336,17 @@ body {
 		background-position: -552px -40px;
 		}
 		
-/* Subsite links */
+#header-blocks .menu-name-primary-links .menu .menu-mlid-894>a {	
+	width: 56px;
+	background-position: -317px 0;
+	}
+	
+	#header-blocks .menu-name-primary-links .menu .menu-mlid-894>a.active-trail,
+	#header-blocks .menu-name-primary-links .menu .menu-mlid-894>a:hover {
+		background-position: -317px -40px;
+		}
+
+    /* Subsite links */
 #header-blocks .menu-name-primary-links .menu .menu-mlid-672>a {
 	width: 60px;
 	background-position: -607px 1px;
@@ -540,7 +550,7 @@ body {
  **********************************************************/
 
 /**
- * Arrangementsoversigter, og månedsoversigter 
+ * Arrangementsoversigter, og mï¿½nedsoversigter 
  */
 
 .view-display-id-page_1 li.views-row,
