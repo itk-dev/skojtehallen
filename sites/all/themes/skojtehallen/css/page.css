@@ -278,12 +278,13 @@ body {
 
 #header-blocks .menu-name-primary-links .menu .menu-mlid-459>a {
 	width: 113px;
+	background-position: 1px 0px;
 	}
 	
 	#header-blocks .menu-name-primary-links .menu .menu-mlid-459>a.active-trail,
 	#header-blocks .menu-name-primary-links .menu .menu-mlid-459>a:hover
 	 {
-		background-position: 0 -40px;
+		background-position: 1px -40px;
 		}
 	
 #header-blocks .menu-name-primary-links .menu .menu-mlid-460>a {
