@@ -278,7 +278,7 @@ body {
 
 #header-blocks .menu-name-primary-links .menu .menu-mlid-459>a {
 	width: 113px;
-	background-position: 1px 0px;
+	background-position: -1px 0px;
 	}
 	
 	#header-blocks .menu-name-primary-links .menu .menu-mlid-459>a.active-trail,
