@@ -376,7 +376,7 @@ class views_bulk_operations_plugin_style extends views_plugin_style_table {
       foreach (array('callback', 'behavior', 'aggregate', 'permissions', 'hooks', 'form properties') as $attribute) {
         if (isset($static_actions[$action->callback][$attribute])) $actions[$action->aid][$attribute] = $static_actions[$action->callback][$attribute];
       }
-      if (isset($static_actions[$action->callback['parameters']])) {
+      if (isset($static_actions[$action->callback]['parameters'])) {
         $actions[$action->aid]['parameters'] = array_merge($actions[$action->aid]['parameters'], $static_actions[$action->callback]['parameters']);
       }
     }
